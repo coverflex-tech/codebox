@@ -1,10 +1,10 @@
-<ul>
-<%= if @current_user do %>
-  <li><%= @current_user.email %></li>
-  <li><%= link "Settings", to: Routes.user_settings_path(@conn, :edit) %></li>
-  <li><%= link "Log out", to: Routes.user_session_path(@conn, :delete), method: :delete %></li>
-<% else %>
-  <li><%= link "Register", to: Routes.user_registration_path(@conn, :new) %></li>
-  <li><%= link "Log in", to: Routes.user_session_path(@conn, :new) %></li>
-<% end %>
-</ul>
+<div class="flex gap-5">
+  <%= if @current_user do %>
+    <div class="font-light"><%= @current_user.email %></div>
+    <div><%= link "Settings", to: Routes.user_settings_path(@conn, :edit) %></div>
+    <div><%= link "Log out", to: Routes.user_session_path(@conn, :delete), method: :delete %></div>
+  <% else %>
+    <div><%= link "Register", to: Routes.user_registration_path(@conn, :new) %></div>
+    <div><%= link "Log in", to: Routes.user_session_path(@conn, :new) %></div>
+  <% end %>
+</div>

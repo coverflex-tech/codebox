@@ -1,12 +1,10 @@
-<h1>Confirm account</h1>
-
 <.form let={_f} for={:user} action={Routes.user_confirmation_path(@conn, :update, @token)}>
-  <div>
-    <%= submit "Confirm my account" %>
+  <div class="my-4 text-center">
+    <%= submit "Confirm my account", class: "justify-self-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-slate-600 hover:bg-slate-700" %>
   </div>
 </.form>
 
-<p>
+<p class="text-center text-xs">
   <%= link "Register", to: Routes.user_registration_path(@conn, :new) %> |
   <%= link "Log in", to: Routes.user_session_path(@conn, :new) %>
 </p>
