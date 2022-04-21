@@ -14,7 +14,7 @@
       <div class="container p-5 mx-auto">
         <div class="flex justify-between items-center">
           <div class="text-3xl font-bold">
-            <%= link "Codebox", to: Routes.page_path(@conn, :index) %>
+            <%= link "Codebox", to: Routes.post_index_path(@conn, :index) %>
           </div>
           <%= render "_user_menu.html", assigns %>
         </div>

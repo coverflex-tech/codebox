@@ -17,12 +17,6 @@ defmodule CodeboxWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", CodeboxWeb do
-    pipe_through :browser
-
-    get "/", PageController, :index
-  end
-
   # Other scopes may use custom stacks.
   # scope "/api", CodeboxWeb do
   #   pipe_through :api
@@ -78,10 +72,17 @@ defmodule CodeboxWeb.Router do
     get "/users/settings", UserSettingsController, :edit
     put "/users/settings", UserSettingsController, :update
     get "/users/settings/confirm_email/:token", UserSettingsController, :confirm_email
+
+    live "/new", PostLive.Index, :new
+    live "/:id/edit", PostLive.Index, :edit
+    live "/:id/show/edit", PostLive.Show, :edit
   end
 
   scope "/", CodeboxWeb do
     pipe_through [:browser]
+
+    live "/", PostLive.Index, :index
+    live "/:id", PostLive.Show, :show
 
     delete "/users/log_out", UserSessionController, :delete
     get "/users/confirm", UserConfirmationController, :new

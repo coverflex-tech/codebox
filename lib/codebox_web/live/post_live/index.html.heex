@@ -1,0 +1,35 @@
+<%= if @live_action in [:new, :edit] do %>
+  <.modal return_to={Routes.post_index_path(@socket, :index)}>
+    <.live_component
+      module={CodeboxWeb.PostLive.FormComponent}
+      id={@post.id || :new}
+      title={@page_title}
+      action={@live_action}
+      post={@post}
+      return_to={Routes.post_index_path(@socket, :index)}
+      current_user={@current_user}
+    />
+  </.modal>
+<% end %>
+
+<div class="flex flex-col gap-4">
+  <%= for post <- @posts do %>
+    <div class="bg-white shadow rounded p-4">
+      <h1 class="text-2xl font-bold">
+        <%= link post.title, to: Routes.post_show_path(@socket, :show, post.id) %>
+      </h1>
+      <div class="text-xs text-gray-500">Published by <%= post.user.email %> - <%= format_date_time(post.inserted_at) %></div>
+      <div class="mt-3">
+        <%= post.summary %>
+      </div>
+      <%= if not is_nil(post.tags) do %>
+        <div class="text-xs mt-5">
+          <strong>Tags:</strong> 
+          <%= for tag <- String.split(post.tags, ",", trim: true) do %>
+            <span class="bg-slate-500 px-3 py-1 rounded-full text-white"><%= tag %></span>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

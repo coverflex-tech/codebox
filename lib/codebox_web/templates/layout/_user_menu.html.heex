@@ -1,6 +1,7 @@
 <div class="flex gap-5">
   <%= if @current_user do %>
     <div class="font-light"><%= @current_user.email %></div>
+    <div><%= link "New Post", to: Routes.post_index_path(@conn, :new) %></div>
     <div><%= link "Settings", to: Routes.user_settings_path(@conn, :edit) %></div>
     <div><%= link "Log out", to: Routes.user_session_path(@conn, :delete), method: :delete %></div>
   <% else %>

@@ -1,0 +1,46 @@
+<%= if @live_action in [:edit] do %>
+  <.modal return_to={Routes.post_show_path(@socket, :show, @post)}>
+    <.live_component
+      module={CodeboxWeb.PostLive.FormComponent}
+      id={@post.id}
+      title={@page_title}
+      action={@live_action}
+      post={@post}
+      return_to={Routes.post_show_path(@socket, :show, @post)}
+      current_user={@current_user}
+    />
+  </.modal>
+<% end %>
+
+<div class="bg-white shadow rounded p-4">
+  <h1 class="text-2xl font-bold">
+    <%= link @post.title, to: Routes.post_show_path(@socket, :show, @post.id) %>
+  </h1>
+  <div class="text-xs text-gray-500">Published by <%= @post.user.email %> - <%= format_date_time(@post.inserted_at) %></div>
+  
+  <div class="mt-3">
+    <%= @post.summary %>
+  </div>
+  <hr class="my-4">
+  <div>
+    <%= @post.body %>
+  </div>
+  <div class="text-xs mt-5 flex justify-between">
+    <%= if not is_nil(@post.tags) do %>
+      <div>
+        <strong>Tags:</strong> 
+        <%= for tag <- String.split(@post.tags, ",", trim: true) do %>
+          <span class="bg-slate-500 px-3 py-1 rounded-full text-white"><%= tag %></span>
+        <% end %>
+      </div>
+    <% else %>
+      <div>No tags</div>
+    <% end %>
+    <%= if not is_nil(@current_user) and @post.user_id == @current_user.id do %>
+      <div>
+        <span><%= live_patch "Edit", to: Routes.post_show_path(@socket, :edit, @post), class: "button" %></span> -
+        <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: @post.id, data: [confirm: "Are you sure?"] %></span>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div>
+  <h1 class="text-2xl mb-4"><%= @title %></h1>
+
+  <.form
+    let={f}
+    for={@changeset}
+    id="post-form"
+    multipart={true}
+    phx-target={@myself}
+    phx-change="validate"
+    phx-submit="save">
+
+    <div class="flex flex-col mb-2">
+      <%= label f, :title, class: "text-sm" %>
+      <%= text_input f, :title, class: "rounded" %>
+      <%= error_tag f, :title %>
+    </div>
+  
+    <div class="flex flex-col mb-2">
+      <%= label f, :summary, class: "text-sm" %>
+      <%= textarea f, :summary, class: "rounded" %>
+      <%= error_tag f, :summary %>
+    </div>
+  
+    <div class="flex flex-col mb-2">
+      <%= label f, :body, class: "text-sm" %>
+      <%= textarea f, :body, class: "rounded", rows: 15 %>
+      <%= error_tag f, :body %>
+    </div>
+  
+    <div class="flex flex-col mb-2">
+      <%= label f, :tags, class: "text-sm" %>
+      <%= text_input f, :tags, class: "rounded" %>
+      <div class="text-xs mt-1 text-gray-600">Separate different tags with commas.</div>
+      <%= error_tag f, :tags %>
+    </div>
+  
+    <div class="flex place-content-end mt-4">
+      <%= submit "Save", phx_disable_with: "Saving...", class: "px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-slate-600 hover:bg-slate-700" %>
+    </div>
+  </.form>
+</div>
