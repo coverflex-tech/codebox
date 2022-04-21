@@ -26,7 +26,8 @@ config :codebox, CodeboxWeb.Endpoint,
   secret_key_base: "YSiga9Hz+NJ2RCmHZi7nIzuu97ZthFza6z9sVHOo6aqan/PkyxkjhNbyCV83bQ25",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
 
 # ## SSL Support
