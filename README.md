@@ -45,6 +45,11 @@ iex -S mix phx.server
 
 With the development server running, in your browser, you can visit [`localhost:4000`](http://localhost:4000) and you should be able to the application web page.
 
+## Useful endpoints
+
+- [`/dev/mailbox`](http://localhost:4000/dev/mailbox) - Development inbox for sent emails. Only available in development environment.
+- [`/dashboard/home`](http://localhost:4000/dashboard/home) - Dashboard from [Phoenix LiveDashboard](https://github.com/phoenixframework/phoenix_live_dashboard) with metrics and other utilities. Only available in development environment.
+
 ## Creating a new release
 
 To create new release of Codebox, first make sure you have fetched the necessary project dependencies.
