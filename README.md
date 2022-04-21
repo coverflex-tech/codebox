@@ -2,9 +2,9 @@
 
 ## Overview
 
-Codebox is a simple web application that developers can use to share interesting code snippets, useful tips or just fun things in general.
+Codebox is a simple web application that developers can use to share interesting code snippets, useful tips or just fun things in general. Users can register their account with an email and a password and post new content.
 
-This app is built using [Phoenix framework](https://www.phoenixframework.org/), that is written using [Elixir](https://elixir-lang.org/). It uses a [PostgreSQL](https://www.postgresql.org/) database to persist information.
+This app is built using [Phoenix framework](https://www.phoenixframework.org/), that is written using [Elixir](https://elixir-lang.org/). Some pages use WebSockets through [Phoenix LiveView](https://github.com/phoenixframework/phoenix_live_view). It uses a [PostgreSQL](https://www.postgresql.org/) database to persist information.
 
 It was tested and known to work without problems with the following dependency versions:
 
@@ -49,6 +49,14 @@ With the development server running, in your browser, you can visit [`localhost:
 
 - [`/dev/mailbox`](http://localhost:4000/dev/mailbox) - Development inbox for sent emails. Only available in development environment.
 - [`/dashboard/home`](http://localhost:4000/dashboard/home) - Dashboard from [Phoenix LiveDashboard](https://github.com/phoenixframework/phoenix_live_dashboard) with metrics and other utilities. Only available in development environment.
+
+## Running tests
+
+You can run the test suite with a single command.
+
+```bash
+mix test
+```
 
 ## Creating a new release
 
