@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Coverflex development team built the Codebox application and would like to take it to production soon. For this challenge we would like you to write a small case study about how would you, as the DevOps engineer assigned to this, would setup the necessary infrastructure and procedures to support the application from development to production. Consider we use **AWS** in Coverflex as our cloud provider.
+The Coverflex development team built the Codebox application and would like to take it to production soon. For this challenge we would like you to write a small case study about how would you, as the DevOps engineer assigned to this, setup the necessary infrastructure and procedures to support the application from development to production. Consider that we use **AWS** in Coverflex as our cloud provider.
 
 Any code snippets or scripts included will be **highly valued** in the review of your challenge.
 
